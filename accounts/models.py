@@ -65,3 +65,14 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, add_label):
         return True
+
+
+
+class Payment(models.Model):
+    # Define fields for the Payment model
+    payment_method = models.CharField(max_length=100)
+    payment_status = models.CharField(max_length=20)
+    payment_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.payment_method
